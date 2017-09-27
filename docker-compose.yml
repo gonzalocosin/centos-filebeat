@@ -1,0 +1,13 @@
+version: '3.2'
+
+services:
+  filebeat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+     - /var/run/docker.sock:/tmp/docker.sock
+    environment:
+     - LOGSTASH_HOST=logstash.localdomain
+     - LOGSTASH_PORT=5044
+     - SHIPPER_NAME=aWonderfulName
